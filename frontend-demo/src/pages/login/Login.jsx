@@ -36,6 +36,7 @@ const Login = () => {
     setFormData(demoCredentials);
     setErrors({});
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -127,7 +128,8 @@ const Login = () => {
               <button type="button" onClick={handleUseDemoCredentials}>
                 Use demo credentials
               </button>
-            </div>            <form onSubmit={handleSubmit}>
+            </div>
+            <form onSubmit={handleSubmit}>
               <label htmlFor="email">Email Address</label>
               <div className="input-wrapper">
                 <input
