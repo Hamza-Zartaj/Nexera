@@ -443,7 +443,7 @@ const handlePost = (url, data = {}) => {
     state.currentUser = { ...state.currentUser, career };
     state.roadmap = makeRoadmap(career);
     saveState(state);
-    return response({ message: "Career assigned successfully" });
+    return response({ message: "Career assigned successfully", user: state.currentUser });
   }
 
   if (path === "/api/profile/roadmap") {

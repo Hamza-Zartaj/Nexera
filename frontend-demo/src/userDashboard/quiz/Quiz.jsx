@@ -5,7 +5,8 @@ import axios from "axios";
 import { NotebookPen } from "lucide-react";
 
 const Quiz = () => {
-  const { user } = useContext(AuthContext);
+  const { user, login } = useContext(AuthContext);
+  const [selectedCareer, setSelectedCareer] = useState(user?.career || "");
   const [quizStarted, setQuizStarted] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -180,21 +181,24 @@ const Quiz = () => {
   ];
 
   const handleOptionClick = (current) => {
+    const updatedOptions = [...selectedOptions, current];
+    setSelectedOptions(updatedOptions);
+
     if (currentQuestionIndex === activeQuestions.length - 1) {
-      handleAnswerSubmit();
+      handleAnswerSubmit(updatedOptions);
       return;
     }
+
     setCurrentQuestionIndex(currentQuestionIndex + 1);
-    setSelectedOptions((prev) => [...prev, current]);
   };
 
-  const handleAnswerSubmit = async () => {
+  const handleAnswerSubmit = async (answers = selectedOptions) => {
     setLoading(true);
     try {
       const res = await axios.post(
         apiUrl("/api/ai/quiz/evaluate"),
         {
-          answers: selectedOptions,
+          answers,
         }
       );
       const parsedData = JSON.parse(res.data);
@@ -206,14 +210,31 @@ const Quiz = () => {
     }
   };
 
+  const getRandomQuizQuestions = () => {
+    const shuffledQuiz = [...quiz].sort(() => Math.random() - 0.5);
+    return shuffledQuiz.slice(0, Math.min(10, shuffledQuiz.length));
+  };
+
+  const resetQuizState = () => {
+    setResult(null);
+    setQuizStarted(false);
+    setCurrentQuestionIndex(0);
+    setSelectedOptions([]);
+    setActiveQuestions(getRandomQuizQuestions());
+  };
+
+  const handleStartQuiz = () => {
+    setResult(null);
+    setCurrentQuestionIndex(0);
+    setSelectedOptions([]);
+    setActiveQuestions(getRandomQuizQuestions());
+    setQuizStarted(true);
+  };
+
   useEffect(() => {
-    const initActiveQuestions = () => {
-      const shuffledQuiz = [...quiz].sort(() => Math.random() - 0.5);
-      const selectedQuestions = shuffledQuiz.slice(0, 10);
-      setActiveQuestions(selectedQuestions);
-    };
-    initActiveQuestions();
-  }, []);
+    setSelectedCareer(user?.career || "");
+    setActiveQuestions(getRandomQuizQuestions());
+  }, [user?.career]);
 
   const handleCareerClick = async (career) => {
     setLoading(true);
@@ -228,20 +249,17 @@ const Quiz = () => {
           },
         }
       );
-      const updatedUser = response.data;
-      console.log("Career assigned successfully:", updatedUser);
+      const updatedUser = response.data?.user || { ...user, career };
+      if (token && updatedUser) {
+        login(token, updatedUser);
+      }
+      setSelectedCareer(updatedUser?.career || career);
+      console.log("Career assigned successfully:", response.data);
     } catch (error) {
       console.error("Error assigning career:", error);
     } finally {
       setLoading(false);
-      setResult(null);
-      setQuizStarted(false);
-      setCurrentQuestionIndex(0);
-      setSelectedOptions([]);
-      setActiveQuestions([]);
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
+            resetQuizState();
     }
   };
 
@@ -317,7 +335,7 @@ const Quiz = () => {
 
       {/* Heading */}
       <h1 className="text-5xl font-semibold">
-        {user && user.career && !quizStarted
+        {selectedCareer && !quizStarted
           ? "Currently Selected Career Path"
           : "Take the Quiz to Find Your Career Path"}
       </h1>
@@ -330,11 +348,11 @@ const Quiz = () => {
         </p>
       )}
 
-      {user && user.career && !quizStarted && (
+      {selectedCareer && !quizStarted && (
         <div>
           <div className="bg-lighterBlack p-4 mt-4 flex items-center justify-between">
             <h1 className="text-3xl font-bold text-primaryPurple-600">
-              {user.career}
+              {selectedCareer}
             </h1>
             <NotebookPen className="text-primaryPurple-400" />
           </div>
@@ -381,7 +399,7 @@ const Quiz = () => {
             </div>
 
             <button
-              onClick={() => setQuizStarted(true)}
+              onClick={handleStartQuiz}
               className="w-fit h-[40px] border-2 border-transparent bg-primaryPurple-600 text-sm text-white font-semibold uppercase py-2 px-8 cursor-pointer hover:bg-primaryPurple-700 active:bg-primaryPurple-600/75 transition-all duration-150"
             >
               Begin Quiz
@@ -396,12 +414,12 @@ const Quiz = () => {
           <div className="bg-lightBlack p-8 w-full mt-4 flex flex-col">
             <h2 className="text-4xl mb-8">
               {currentQuestionIndex + 1}{" "}
-              {activeQuestions[currentQuestionIndex].question}
+              {activeQuestions[currentQuestionIndex]?.question || "Preparing your quiz..."}
             </h2>
 
             {!loading && !result ? (
               <div className="flex flex-col w-full gap-4">
-                {activeQuestions[currentQuestionIndex].options.map(
+                {(activeQuestions[currentQuestionIndex]?.options || []).map(
                   (option, index) => (
                     <div
                       className="w-full bg-lighterBlack p-4 text-gray-300 text-lg hover:bg-darkPurple hover:text-white transition-all duration-150 cursor-pointer"
@@ -456,14 +474,14 @@ const Quiz = () => {
           </div>
         )
       ) : (
-        !user.career && (
+        !selectedCareer && (
           <div className="absolute inset-0 flex flex-col items-center justify-center">
             <p className="text-center mb-4 text-sm text-gray-300">
               This quiz will help you discover the best career path for you. It
               takes about 5 minutes to complete.
             </p>
             <button
-              onClick={() => setQuizStarted(true)}
+              onClick={handleStartQuiz}
               className="w-fit bg-primaryPurple-600 text-sm text-white font-semibold uppercase py-2 px-8 cursor-pointer hover:bg-primaryPurple-700 active:bg-primaryPurple-600/75 transition-all duration-150"
             >
               Begin Quiz
