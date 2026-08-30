@@ -7,6 +7,10 @@ import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 
 const Login = () => {
+  const demoCredentials = {
+    email: "demo@nexera.local",
+    password: "demo123",
+  };
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -28,6 +32,10 @@ const Login = () => {
     navigate("/user/home");
   };
 
+  const handleUseDemoCredentials = () => {
+    setFormData(demoCredentials);
+    setErrors({});
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -107,7 +115,19 @@ const Login = () => {
         <div className="login-form-section">
           <div className="login-form-container">
             <h2>Log In</h2>
-            <form onSubmit={handleSubmit}>
+            <div className="demo-credentials" aria-label="Demo credentials">
+              <div>
+                <span>Demo email</span>
+                <strong>{demoCredentials.email}</strong>
+              </div>
+              <div>
+                <span>Demo password</span>
+                <strong>{demoCredentials.password}</strong>
+              </div>
+              <button type="button" onClick={handleUseDemoCredentials}>
+                Use demo credentials
+              </button>
+            </div>            <form onSubmit={handleSubmit}>
               <label htmlFor="email">Email Address</label>
               <div className="input-wrapper">
                 <input
@@ -116,6 +136,7 @@ const Login = () => {
                   placeholder="Enter your email"
                   name="email"
                   autoComplete="email"
+                  value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
@@ -136,6 +157,7 @@ const Login = () => {
                   placeholder="Enter your password"
                   name="password"
                   autoComplete="current-password"
+                  value={formData.password}
                   onChange={(e) =>
                     setFormData({ ...formData, password: e.target.value })
                   }
