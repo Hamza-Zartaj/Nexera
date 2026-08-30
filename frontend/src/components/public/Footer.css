@@ -1,0 +1,45 @@
+.footer {
+  background-color: #0a0014;
+  text-align: center;
+  padding: 40px 20px;
+  color: #ccc;
+  font-size: 15px;
+  margin-top: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200%;
+  height: 300%;
+  background: radial-gradient(circle at center, #6a0dad22 10%, transparent 70%);
+  z-index: 0;
+}
+
+.footer p,
+.footer .social-icons {
+  position: relative;
+  z-index: 1;
+}
+
+.social-icons {
+  margin-top: 15px;
+}
+
+.social-icons a {
+  color: #c77dff;
+  margin: 0 10px;
+  font-size: 22px;
+  transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #fff;
+  transform: scale(1.2);
+  text-shadow: 0 0 10px #c77dff;
+}

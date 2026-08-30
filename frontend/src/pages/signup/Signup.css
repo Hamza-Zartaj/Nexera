@@ -1,0 +1,161 @@
+.signup {
+  height: 100vh;
+  display: flex;
+  position: relative;
+}
+.signup .nexera-header {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 10px #8a2be2, 0 0 20px #6a0dad;
+  font-family: "Poppins", sans-serif;
+}
+.signup .signup-container {
+  display: flex;
+  width: 100%;
+}
+.signup .signup-container .image-section {
+  flex: 1;
+  background-color: #3d0275;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.signup .signup-container .image-section .background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.signup .signup-container .signup-form-section {
+  flex: 1;
+  background: #1c1c1c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.signup .signup-container .signup-form-section .signup-form-container {
+  background: #1c1c1c;
+  padding: 50px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(60, 0, 102, 0.6666666667);
+  width: 100%;
+  margin: 0 auto;
+  max-width: 620px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.signup .signup-container .signup-form-section .signup-form-container h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 45px;
+  color: #fff;
+}
+.signup .signup-container .signup-form-section .signup-form-container p {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #c0c0c0;
+}
+.signup .signup-container .signup-form-section .signup-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.signup .signup-container .signup-form-section .signup-form-container form label {
+  font-size: 16px;
+  color: #ccc;
+  margin-bottom: 5px;
+}
+.signup .signup-container .signup-form-section .signup-form-container form .input-wrapper {
+  position: relative;
+}
+.signup .signup-container .signup-form-section .signup-form-container form .input-wrapper input {
+  width: 100%;
+  padding: 12px 40px 12px 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: #0d0d0d;
+  color: #fff;
+}
+.signup .signup-container .signup-form-section .signup-form-container form .input-wrapper input:focus {
+  outline: none;
+  border-color: #6a0dad;
+  box-shadow: 0 0 5px rgba(106, 13, 173, 0.5333333333);
+}
+.signup .signup-container .signup-form-section .signup-form-container form .input-wrapper i {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #aaa;
+}
+.signup .signup-container .signup-form-section .signup-form-container form .form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+.signup .signup-container .signup-form-section .signup-form-container form .form-options a {
+  color: #c77dff;
+  text-decoration: underline;
+  transition: 0.3s;
+}
+.signup .signup-container .signup-form-section .signup-form-container form .form-options a:hover {
+  color: #8a2be2;
+}
+.signup .signup-container .signup-form-section .signup-form-container form .signup-button {
+  padding: 14px;
+  font-size: 18px;
+  background: #6a0dad;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  height: 55px;
+}
+.signup .signup-container .signup-form-section .signup-form-container form .signup-button:hover {
+  background: #8a2be2;
+  transform: scale(1.05);
+}
+.signup .signup-container .signup-form-section .signup-form-container .redirect-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+}
+.signup .signup-container .signup-form-section .signup-form-container .redirect-text a {
+  color: #c77dff;
+  text-decoration: underline;
+  transition: 0.3s;
+}
+.signup .signup-container .signup-form-section .signup-form-container .redirect-text a:hover {
+  color: #8a2be2;
+}
+.signup .spinner {
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top: 4px solid #6a0dad;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

@@ -1,0 +1,95 @@
+.feedback {
+  display: flex;
+  height: 100vh;
+  overflow-y: hidden;
+}
+.feedback .form-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 50px;
+  position: relative;
+  background: #0d0d0d;
+}
+.feedback .form-section .nexera-header {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 10px #8a2be2, 0 0 20px #6a0dad;
+  font-family: "Poppins", sans-serif;
+}
+.feedback .form-section .form-container {
+  width: 100%;
+  max-width: none;
+  padding: 40px;
+  border-radius: 10px;
+}
+.feedback .form-section .form-container h2 {
+  color: #fff;
+  text-align: left;
+  margin-bottom: 20px;
+  font-size: 48px;
+  font-weight: bold;
+}
+.feedback .form-section .form-container p {
+  color: #c0c0c0;
+  text-align: left;
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+.feedback .form-section .form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.feedback .form-section .form-container form input,
+.feedback .form-section .form-container form textarea {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background: #0d0d0d;
+  color: #fff;
+}
+.feedback .form-section .form-container form input:focus,
+.feedback .form-section .form-container form textarea:focus {
+  outline: none;
+  border-color: #6a0dad;
+  box-shadow: 0 0 10px rgba(106, 13, 173, 0.5333333333);
+}
+.feedback .form-section .form-container form textarea {
+  resize: none;
+}
+.feedback .form-section .form-container form button {
+  padding: 15px;
+  font-size: 20px;
+  background: #6a0dad;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.feedback .form-section .form-container form button:hover {
+  background: #8a2be2;
+  transform: scale(1.05);
+}
+.feedback .image-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0d0d0d;
+}
+.feedback .image-section img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}

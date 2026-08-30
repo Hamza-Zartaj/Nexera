@@ -1,0 +1,146 @@
+.login {
+  height: 100vh;
+  display: flex;
+  position: relative;
+}
+.login .nexera-header {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 10px #8a2be2, 0 0 20px #6a0dad;
+  font-family: "Poppins", sans-serif;
+}
+.login .login-container {
+  display: flex;
+  width: 100%;
+}
+.login .login-container .image-section {
+  flex: 1;
+  background-color: #3d0275;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login .login-container .image-section .background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.login .login-container .login-form-section {
+  flex: 1;
+  background: #1c1c1c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.login .login-container .login-form-section .login-form-container {
+  background: #1c1c1c;
+  padding: 50px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(60, 0, 102, 0.6666666667);
+  width: 100%;
+  margin: 0 auto;
+  max-width: 620px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.login .login-container .login-form-section .login-form-container h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 45px;
+  color: #fff;
+}
+.login .login-container .login-form-section .login-form-container p {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #c0c0c0;
+}
+.login .login-container .login-form-section .login-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.login .login-container .login-form-section .login-form-container form label {
+  font-size: 16px;
+  color: #ccc;
+  margin-bottom: 5px;
+}
+.login .login-container .login-form-section .login-form-container form .input-wrapper {
+  position: relative;
+}
+.login .login-container .login-form-section .login-form-container form .input-wrapper input {
+  width: 100%;
+  padding: 12px 40px 12px 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: #0d0d0d;
+  color: #fff;
+}
+.login .login-container .login-form-section .login-form-container form .input-wrapper input:focus {
+  outline: none;
+  border-color: #6a0dad;
+  box-shadow: 0 0 5px rgba(106, 13, 173, 0.5333333333);
+}
+.login .login-container .login-form-section .login-form-container form .input-wrapper i {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #aaa;
+}
+.login .login-container .login-form-section .login-form-container form .form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+.login .login-container .login-form-section .login-form-container form .form-options a {
+  color: #c77dff;
+  text-decoration: underline;
+  transition: 0.3s;
+}
+.login .login-container .login-form-section .login-form-container form .form-options a:hover {
+  color: #8a2be2;
+}
+.login .login-container .login-form-section .login-form-container form .login-button {
+  padding: 14px;
+  font-size: 18px;
+  background: #6a0dad;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.login .login-container .login-form-section .login-form-container form .login-button:hover {
+  background: #8a2be2;
+  transform: scale(1.05);
+}
+.login .login-container .login-form-section .login-form-container .redirect-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+}
+.login .login-container .login-form-section .login-form-container .redirect-text a {
+  color: #c77dff;
+  text-decoration: underline;
+  transition: 0.3s;
+}
+.login .login-container .login-form-section .login-form-container .redirect-text a:hover {
+  color: #8a2be2;
+}
+
+.google-login-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}

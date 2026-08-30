@@ -1,0 +1,213 @@
+.welcome-page {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  text-align: center;
+  padding: 180px 20px 60px;
+  flex-grow: 1;
+}
+.welcome-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 75%);
+  animation: moveLight 6s infinite linear;
+  z-index: 0;
+  pointer-events: none;
+}
+.welcome-page h1 {
+  font-size: 48px;
+  color: #fff;
+  text-shadow: 0 0 10px #c77dff;
+  margin-bottom: 20px;
+}
+.welcome-page p {
+  font-size: 20px;
+  color: #ddd;
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+.welcome-page .btn {
+  position: relative;
+  z-index: 1;
+  padding: 12px 30px;
+  margin: 30px;
+  background: #6a0dad;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: 0.3s ease;
+  box-shadow: 0 0 15px #6a0dad;
+  overflow: hidden;
+}
+.welcome-page .btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(199, 125, 255, 0.25) 0%, transparent 60%);
+  animation: moveLightBtn 3s infinite alternate ease-in-out;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 30px;
+}
+.welcome-page .btn:hover {
+  background: #8a2be2;
+  box-shadow: 0 0 25px #c77dff;
+  transform: scale(1.05);
+}
+
+@keyframes moveLight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+@keyframes moveLightBtn {
+  0% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@media (max-width: 1536px) {
+  .welcome-page h1 {
+    font-size: 40px;
+  }
+  .welcome-page p {
+    font-size: 20px;
+    max-width: 650px;
+  }
+}
+@media (max-width: 1390px) {
+  .welcome-page h1 {
+    font-size: 40px;
+  }
+  .welcome-page p {
+    font-size: 19px;
+    max-width: 630px;
+  }
+}
+@media (max-width: 1280px) {
+  .welcome-page h1 {
+    font-size: 34px;
+  }
+  .welcome-page p {
+    font-size: 18px;
+    max-width: 600px;
+  }
+  .welcome-page .btn {
+    padding: 12px 25px;
+  }
+}
+@media (max-width: 1024px) {
+  .welcome-page h1 {
+    font-size: 34px;
+  }
+  .welcome-page p {
+    font-size: 17px;
+    max-width: 550px;
+  }
+  .welcome-page .btn {
+    padding: 10px 20px;
+  }
+}
+@media (max-width: 900px) {
+  .welcome-page h1 {
+    font-size: 30px;
+  }
+  .welcome-page p {
+    font-size: 16px;
+    max-width: 520px;
+  }
+  .welcome-page .btn {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+}
+@media (max-width: 760px) {
+  .welcome-page h1 {
+    font-size: 28px;
+  }
+  .welcome-page p {
+    font-size: 15px;
+    max-width: 500px;
+  }
+  .welcome-page .btn {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 640px) {
+  .welcome-page h1 {
+    font-size: 26px;
+  }
+  .welcome-page p {
+    font-size: 14px;
+    max-width: 95%;
+  }
+  .welcome-page .btn {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+}
+@media (max-width: 600px) {
+  .welcome-page h1 {
+    font-size: 24px;
+  }
+  .welcome-page p {
+    font-size: 13px;
+    max-width: 90%;
+  }
+  .welcome-page .btn {
+    padding: 10px 18px;
+    font-size: 12.5px;
+  }
+}
+@media (max-width: 480px) {
+  .welcome-page h1 {
+    font-size: 22px;
+  }
+  .welcome-page p {
+    font-size: 13px;
+    max-width: 100%;
+  }
+  .welcome-page .btn {
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 360px) {
+  .welcome-page h1 {
+    font-size: 20px;
+  }
+  .welcome-page p {
+    font-size: 12px;
+  }
+  .welcome-page .btn {
+    padding: 8px 14px;
+    font-size: 11px;
+  }
+}
+@media (max-width: 320px) {
+  .welcome-page h1 {
+    font-size: 18px;
+  }
+  .welcome-page p {
+    font-size: 11px;
+  }
+  .welcome-page .btn {
+    padding: 7px 12px;
+    font-size: 10px;
+  }
+}

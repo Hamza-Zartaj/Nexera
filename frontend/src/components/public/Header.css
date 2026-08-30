@@ -1,0 +1,138 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(20, 0, 30, 0.9);
+  padding: 20px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 5px 20px #6a0dad;
+  backdrop-filter: blur(10px);
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #c77dff;
+}
+
+.logo-text {
+  font-family: "Orbitron", sans-serif;
+  font-size: 28px;
+  color: #c77dff;
+  text-shadow: 0 0 10px #c77dff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #eee;
+  font-weight: bold;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.nav-links li a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0%;
+  top: 0;
+  left: 0;
+  background: #6a0dad;
+  z-index: -1;
+  transition: height 0.3s ease;
+  border-radius: 8px;
+}
+
+.nav-links li a:hover::before {
+  height: 100%;
+}
+
+.nav-links li a:hover {
+  color: black;
+}
+
+@media screen and (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: flex;
+  }
+
+  .nav-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .line {
+    width: 20px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 9999px;
+    transition: 100ms;
+  }
+
+  .mobile-nav .nav-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 0;
+    background: rgba(20, 0, 30, 1);
+    transition: 200ms;
+    overflow: hidden;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  .mobile-nav .logo-area {
+    z-index: 1;
+  }
+  .mobile-nav .nav-icon {
+    z-index: 1;
+  }
+
+  .mobile-nav.open .nav-links {
+    height: 100vh;
+    margin-top: 82px;
+  }
+
+  .mobile-nav.open .nav-icon .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .mobile-nav.open .nav-icon .line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-nav.open .nav-icon .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}

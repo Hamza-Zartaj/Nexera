@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primaryPurple-400: #c084fc;
+  --color-primaryPurple-500: #a855f7;
+  --color-primaryPurple-600: #9333ea;
+  --color-primaryPurple-700: #7e22ce;
+  --color-primaryPurple-800: #6b21a8;
+  --color-primaryPurple-900: #581c87;
+  --color-primaryPurple-950: #3b0764;
+  --color-darkPurple: rgba(20, 0, 30, 0.9);
+  --color-darkerPurple: #0a0014;
+  --color-lightBlack: #111111;
+  --color-lighterBlack: #222222;
+}
+
+:root {
+  --purple-400: #c084fc;
+  --purple-500: #a855f7;
+  --purple-600: #9333ea;
+  --purple-700: #7e22ce;
+  --purple-800: #6b21a8;
+  --purple-900: #581c87;
+  --purple-950: #3b0764;
+  --dark-purple: rgba(20, 0, 30, 0.9);
+  --darker-purple: #0a0014;
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, #1a001f, #3c0066);
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1a001f, #3c0066);
+  color: #eee;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.hero {
+  background: linear-gradient(to bottom, #6b21a8, #000000);
+  text-align: center;
+
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 0;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.hero h1 {
+  font-size: 6rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-shadow: none;
+}
+
+.hero p {
+  font-size: 20px;
+  color: #e9d5ff;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.main-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 150px 20px 60px;
+  }
+  .hero h1 {
+    font-size: 36px;
+  }
+  .hero p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 120px 20px 50px;
+  }
+  .hero h1 {
+    font-size: 32px;
+  }
+  .hero p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 100px 20px 40px;
+  }
+  .hero h1 {
+    font-size: 28px;
+  }
+  .hero p {
+    font-size: 14px;
+  }
+}

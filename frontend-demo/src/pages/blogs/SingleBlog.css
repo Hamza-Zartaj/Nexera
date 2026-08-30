@@ -1,0 +1,22 @@
+.single-blog .body-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.single-blog .body-container p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+.single-blog .body-container ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.single-blog .body-container ul li {
+  margin-bottom: 0.5rem;
+}
+.single-blog .body-container img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem;
+}
